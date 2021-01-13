@@ -29,7 +29,14 @@
 @endsection
 @section('content')
 
-    
+    @if (session()->has('Add'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{ session()->get('Add') }}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
 
     <!-- row -->
     <div class="row">
@@ -174,29 +181,29 @@
 @endsection
 @section('js')
     <!-- Internal Select2 js-->
-    <script src="{{ asset('assets/plugins/select2/js/select2.min.js') }}"></script>
+    <script src="{{ URL::asset('assets/plugins/select2/js/select2.min.js') }}"></script>
     <!--Internal Fileuploads js-->
-    <script src="{{ asset('assets/plugins/fileuploads/js/fileupload.js') }}"></script>
-    <script src="{{ asset('assets/plugins/fileuploads/js/file-upload.js') }}"></script>
+    <script src="{{ URL::asset('assets/plugins/fileuploads/js/fileupload.js') }}"></script>
+    <script src="{{ URL::asset('assets/plugins/fileuploads/js/file-upload.js') }}"></script>
     <!--Internal Fancy uploader js-->
-    <script src="{{ asset('assets/plugins/fancyuploder/jquery.ui.widget.js') }}"></script>
-    <script src="{{ asset('assets/plugins/fancyuploder/jquery.fileupload.js') }}"></script>
-    <script src="{{ asset('assets/plugins/fancyuploder/jquery.iframe-transport.js') }}"></script>
-    <script src="{{ asset('assets/plugins/fancyuploder/jquery.fancy-fileupload.js') }}"></script>
-    <script src="{{ asset('assets/plugins/fancyuploder/fancy-uploader.js') }}"></script>
+    <script src="{{ URL::asset('assets/plugins/fancyuploder/jquery.ui.widget.js') }}"></script>
+    <script src="{{ URL::asset('assets/plugins/fancyuploder/jquery.fileupload.js') }}"></script>
+    <script src="{{ URL::asset('assets/plugins/fancyuploder/jquery.iframe-transport.js') }}"></script>
+    <script src="{{ URL::asset('assets/plugins/fancyuploder/jquery.fancy-fileupload.js') }}"></script>
+    <script src="{{ URL::asset('assets/plugins/fancyuploder/fancy-uploader.js') }}"></script>
     <!--Internal  Form-elements js-->
-    <script src="{{ asset('assets/js/advanced-form-elements.js') }}"></script>
-    <script src="{{ asset('assets/js/select2.js') }}"></script>
+    <script src="{{ URL::asset('assets/js/advanced-form-elements.js') }}"></script>
+    <script src="{{ URL::asset('assets/js/select2.js') }}"></script>
     <!--Internal Sumoselect js-->
-    <script src="{{ asset('assets/plugins/sumoselect/jquery.sumoselect.js') }}"></script>
+    <script src="{{ URL::asset('assets/plugins/sumoselect/jquery.sumoselect.js') }}"></script>
     <!--Internal  Datepicker js -->
-    <script src="{{ asset('assets/plugins/jquery-ui/ui/widgets/datepicker.js') }}"></script>
+    <script src="{{ URL::asset('assets/plugins/jquery-ui/ui/widgets/datepicker.js') }}"></script>
     <!--Internal  jquery.maskedinput js -->
-    <script src="{{ asset('assets/plugins/jquery.maskedinput/jquery.maskedinput.js') }}"></script>
+    <script src="{{ URL::asset('assets/plugins/jquery.maskedinput/jquery.maskedinput.js') }}"></script>
     <!--Internal  spectrum-colorpicker js -->
-    <script src="{{asset('assets/plugins/spectrum-colorpicker/spectrum.js') }}"></script>
+    <script src="{{ URL::asset('assets/plugins/spectrum-colorpicker/spectrum.js') }}"></script>
     <!-- Internal form-elements js -->
-    <script src="{{ asset('assets/js/form-elements.js') }}"></script>
+    <script src="{{ URL::asset('assets/js/form-elements.js') }}"></script>
 
     <script>
         var date = $('.fc-datepicker').datepicker({
@@ -210,7 +217,6 @@
                 var SectionId = $(this).val();
                 if (SectionId) {
                     $.ajax({
-                        
                         url: "{{ URL::to('section') }}/" + SectionId,
                         type: "GET",
                         dataType: "json",
@@ -228,5 +234,6 @@
             });
         });
     </script>
+
 
 @endsection

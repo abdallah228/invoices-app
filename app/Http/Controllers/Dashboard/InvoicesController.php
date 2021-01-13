@@ -91,8 +91,7 @@ class InvoicesController extends Controller
 
     public function getproducts($id)
     {
-        $products = DB::table('products')->where('section_id', $id)->pluck('product_name', 'id');
+        $products = DB::table("products")->where("section_id", $id)->pluck("product_name", "id");
         return json_encode($products);
     }
-
 }

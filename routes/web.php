@@ -28,7 +28,7 @@ Route::group(['prefix'=>'dashboard','namespace'=>'Dashboard','middleware'=>'auth
 Route::resource('invoices','invoicesController');//invoices
 Route::resource('sections','SectionController');//sections
 Route::resource('products','ProductController');//products
-Route::get('section/{id}', 'InvoicesController@getproducts');//invoices get all prouct that belongs to sections
+Route::get('/section/{id}', 'InvoicesController@getproducts');
 
 
 });
